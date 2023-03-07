@@ -22,7 +22,6 @@ type Location struct {
 }
 
 type Santa struct {
-	name    string
 	current Location
 }
 
@@ -55,8 +54,8 @@ func isVisited(currentLocation Location, visitedHouses []Location) []Location {
 }
 
 func delivery(input string) int {
-	santa := Santa{name: "santa"}
-	robot := Santa{name: "robot"}
+	santa := Santa{}
+	robot := Santa{}
 
 	robotIndex := 1
 	visitedHouses := []Location{{}}
