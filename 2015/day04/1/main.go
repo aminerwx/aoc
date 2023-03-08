@@ -4,29 +4,24 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
-	"math"
 	"strconv"
+	"strings"
 )
 
-func hasZeroes(mixer string) bool {
-	hash := md5.Sum([]byte(mixer))
-	check := hex.EncodeToString(hash[:])
-	return check[:5] == "00000"
-}
-
-func blender(key string) string {
-	for i := 0; i < int(math.Pow10(len(key))); i++ {
+func lowestNumber(key string) int {
+	for i := 0; true; i++ {
 		mixer := key + strconv.Itoa(i)
-		found := hasZeroes(mixer)
-		if found {
-			return strconv.Itoa(i)
+		hash := md5.Sum([]byte(mixer))
+		check := hex.EncodeToString(hash[:])
+		if strings.HasPrefix(check, "00000") {
+			return i
 		}
 	}
-	return "not found"
+	return 0
 }
 
 func main() {
 	input := "yzbqklnj"
-	output := blender(input)
+	output := lowestNumber(input)
 	fmt.Println("lowest number = ", output)
 }
