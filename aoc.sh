@@ -1,2 +1,3 @@
 #!/bin/bash
-cp -r $PWD/2015/template $PWD/2015/$1
+AOC_DIR="${HOME}/repos/github/rsx0806/aoc/2015"
+cp -r "${AOC_DIR}/template" "${AOC_DIR}/$1"

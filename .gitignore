@@ -18,3 +18,8 @@ token
 2015/*/*.swp
 .vscode
 aoc.sh
+go.mod
+go.sum
+2015/day07/input
+2015/day07/1/main.go
+2015/day07/2/main.go
